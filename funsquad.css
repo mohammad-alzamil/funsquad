@@ -63,6 +63,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+        z-index: 1; /* تأكد من أن الز-index مرتفع لتمكين النقر */
+
 }
 
 #nav-right span {
