@@ -20,7 +20,7 @@ a {
     padding: 20px;
     width: 100%;
     height: 100%;
-    background-image: url('fun_squad4.jpg' );
+    background-image: url(fun_squad4.jpg );
     background-repeat: no-repeat;
     background-position: top right;
     background-size: cover;
@@ -66,6 +66,9 @@ a {
 }
 
 #nav-right span {
+    display: none;
+    /* إخفاء على أجهزة الكمبيوتر */
+
     margin-right: 20px;
     cursor: pointer;
     font-size: 30px;
@@ -164,7 +167,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-image: url('fun_squad3.jpg');
+    background-image: url(fun_squad3.jpg);
     background-position: right top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -354,5 +357,89 @@ a {
     100% {
         box-shadow: 0 0 3px #ff0000, 0 0 8px #ff0000;
         /* تقليل حجم الدائرة المحيطة */
+    }
+}
+
+/* التعديلات الخاصة بالشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+
+    /* إخفاء الزر */
+    #nav-right button {
+        display: none;
+    }
+
+    /* تعديل navbar ليظهر كقائمة عمودية */
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* دمج nav-center مع nav-right */
+    #nav-center {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    /* تعديل روابط navbar في #nav-center */
+    #navbar #nav-center a {
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    /* زر الهامبرغر */
+    #nav-right {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        display: block;
+        /* سيظهر العنصر فقط على الشاشات الصغيرة (الهواتف) */
+
+    }
+
+    #nav-right span {
+
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    /* عند النقر على الزر يظهر navbar */
+    .navbar-mobile {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #nav-right.active+.navbar-mobile {
+        display: flex;
+    }
+
+    /* على الشاشات الكبيرة (أكبر من 768px) */
+    @media screen and (min-width: 769px) {
+
+        /* إخفاء زر الهامبرغر على الشاشات الكبيرة */
+        #nav-right {
+            display: none;
+        }
+
+        /* التأكد من أن القائمة ليست ظاهرة على الشاشات الكبيرة */
+        .navbar-mobile {
+            display: none;
+        }
+
+        /* التأكد من أن navbar لا يتم تعديله على الشاشات الكبيرة */
+        #navbar {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #nav-center {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
     }
 }
